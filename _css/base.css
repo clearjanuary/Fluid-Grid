@@ -1,0 +1,54 @@
+/*
+================================
+====== BASE LAYOUT STYLES ======
+================================
+*/
+
+/* ========================================= MAIN STYLES ===== */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+body {
+	background: url(../_img/bg-main.jpg) #333;
+	font-size: 62.5%;
+}
+
+/* ========================================= BACKGROUND MEMBERS ===== */
+ul {
+	width: 100%;
+	margin: auto;
+}
+li {
+	float: left;
+	list-style: none;
+}
+#member-grid { margin: auto; }
+.member-container {
+	background: url(../_img/bg-member.png) no-repeat;
+	width: 150px;
+	height: 190px;
+	padding: 5px 0 0 5px;
+}
+.member-online, .member-offline {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #fff;
+	height: 20px;
+	width: 100px;
+	padding: 0 0 0 25px;
+}
+.member-online {
+	text-transform: uppercase;
+	background: url(../_img/icon-online.png) no-repeat left center;
+}
+.member-offline { background: url(../_img/icon-offline.png) no-repeat left center; }
+.num-photos {
+	font-size: 1.4em;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: underline;
+}
