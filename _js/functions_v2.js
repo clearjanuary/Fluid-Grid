@@ -4,57 +4,40 @@
 ====================================
 */
 
-this.theGrid = {
-	
+var Grid = {
+	photos: ['3','2','5','2','6','3','4','7','2','4','3','6'],
+	init: function () {
+		var self = this;
+		$(window).on('resize', function () {
+			self.getImagesIn()
+		});
+		this.getImagesIn();
+	},
 	// set up the grid
 	getGridSize: function() {		
-		this.numOfRows = Math.round(window.innerHeight/190)-2;
-		this.numOfItems = Math.round(window.innerWidth/150)-1;
-		this.numToShow = (this.numOfRows)*(this.numOfItems);
-		document.getElementById('member-grid').setAttribute('style','width: '+this.numOfItems*155+'px; overflow: hidden;');
+		var rows = Math.floor($(window).height()/195)-2,
+			columns = Math.floor($(window).width()/155);
+		$('#member-grid').height(rows * 195);
+		return rows*columns;
 	},
-	
-	// declare variables
-	memberEntry: [],
-	memberPhotoNum: ['3','2','5','2','6','3','4','7','2','4','3','6'],
-	numOfPhotos: 12,
-	pic: Math.round(Math.random()*this.numToShow+1),
-	
 	// create the member info array
 	getImagesIn: function() {
-		for (var i=this.pic; i<=200; i++) {
-		
-			//set image
-			if (this.pic > this.numOfPhotos-1) this.pic = 1;
-			if (this.pic < 10) this.pic = "0"+this.pic;
-			this.pic++;
+		$('#member-grid').empty();
+		var num = this.getGridSize();
+		for (var i=0; i<num; i++) {
 			
 			// set on/offline status
-			
-			
-			// insert new data into array
-			this.memberEntry.push({memImage: this.pic, memPhotos: this.memberPhotoNum[i], memStatus: "On/Offline"});
-			this.htmlTemplate = "<li class='member-container'><img src='_img/members/"+this.pic+".png' /><div class='num-photos'>"+this.memberPhotoNum[i]+" photos</div><div class='member-"+this.status+">"+this.status+"</div></li>";
-			$(this.htmlTemplate).appendTo('#member-grid');
+			var index = i%12,
+				src = index < 9 ? '0' + (index + 1) : index + 1,
+				status = i%2 ? 'online' : 'offline', // 
+				htmlTemplate = '<li class="member-container"><img src="_img/members/'+src+'.png" /><div class="num-photos">'+this.photos[index]+' photos</div><div class="member-'+status+'">'+status+'</div></li>';
+			$(htmlTemplate).appendTo('#member-grid');
 		}
 	}
 }
 
-// $(html).tmpl(memberEntry).appendTo("#member-grid");
-
-/*
-=====================================
-========== GLOBAL HANDLERS ==========
-=====================================
-*/
-window.onload = function() {
-	theGrid.getGridSize();
-	theGrid.getImagesIn();
-	// $.colorbox({href:"#form-container"}); // lightbox
-}
-window.onresize = function() { theGrid.getGridSize(); } // member grid
-
 $(document).ready(function() {
+	Grid.init();
 	$('#form-continue').click( function() {
 		// reveal second half of register form
 		$('#form-continue').hide('blind', { direction:'vertical' }, 500);
@@ -65,5 +48,5 @@ $(document).ready(function() {
 	});
 	// member info feed
 	function tick() { $('#member-feed li:first').slideUp(function() { $(this).appendTo($('#member-feed')).slideDown();}); }
-	setInterval(function(){tick()}, 5000);
+	setInterval(tick, 5000);
 });

@@ -31,7 +31,7 @@ li {
 	float: left;
 	list-style: none;
 }
-#member-grid { margin: auto; }
+#member-grid { margin: auto;overflow:hidden; }
 .member-container {
 	background: url(../_img/template/bg-member.png) no-repeat;
 	width: 150px;
