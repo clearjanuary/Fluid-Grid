@@ -1,7 +1,7 @@
 /*
-================================
-====== BASE LAYOUT STYLES ======
-================================
+==============================
+===== BASE LAYOUT STYLES =====
+==============================
 */
 
 /* ========================================= MAIN STYLES ===== */
@@ -11,11 +11,18 @@
 	font-family: Arial, sans-serif;
 }
 body {
-	background: url(../_img/bg-main.jpg) #333;
+	background: url(../_img/template/bg-main.jpg) #333;
 	font-size: 62.5%;
 }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+.clearer {
+	clear: both;
+	border: 0;
+}
+.magic { display: none; }
 
-/* ========================================= BACKGROUND MEMBERS ===== */
+/* ========================================= MEMBER GRID ===== */
 ul {
 	width: 100%;
 	margin: auto;
@@ -26,7 +33,7 @@ li {
 }
 #member-grid { margin: auto; }
 .member-container {
-	background: url(../_img/bg-member.png) no-repeat;
+	background: url(../_img/template/bg-member.png) no-repeat;
 	width: 150px;
 	height: 190px;
 	padding: 5px 0 0 5px;
@@ -37,14 +44,15 @@ li {
 	font-size: 1.2em;
 	color: #fff;
 	height: 20px;
-	width: 100px;
-	padding: 0 0 0 25px;
+	width: 50px;
+	margin: auto;
+	padding: 5px 0 0 25px;
 }
 .member-online {
 	text-transform: uppercase;
-	background: url(../_img/icon-online.png) no-repeat left center;
+	background: url(../_img/template/icon-online.gif) no-repeat left;
 }
-.member-offline { background: url(../_img/icon-offline.png) no-repeat left center; }
+.member-offline { background: url(../_img/template/icon-offline.png) no-repeat left; }
 .num-photos {
 	font-size: 1.4em;
 	text-align: center;
@@ -52,3 +60,192 @@ li {
 	color: #fff;
 	text-decoration: underline;
 }
+
+/* ========================================= MASTHEAD ===== */
+#masthead {
+	height: 124px;
+	background: url(../_img/template/bg-masthead.png) repeat-x;
+	margin: 0 0 25px 0;
+}
+#logo {
+	background: url(../_img/template/logo-masthead.png) no-repeat;
+	width: 249px;
+	height: 123px;
+	margin: auto;
+}
+#utility-links {
+	width: 190px;
+	position: absolute;
+	top: 7px;
+	right: 0;
+}
+#masthead p {
+	color: #666;
+	font-size: 1.2em;
+	font-weight: bold;
+	float: left;
+	margin: 11px 0 0 0;
+}
+#button-login {
+	background: url(../_img/template/b-login.png) no-repeat;
+	height: 36px;
+	width: 63px;
+	float: left;
+	margin: 0 0 0 10px;
+}
+
+/* ========================================= REGISTER FORM ===== */
+#form-container { padding: 0 20px; }
+.form-row {
+	float: left;
+	width: 352px;
+	height: 40px;
+}
+#form-container h2 {
+	background: url(../_img/template/title-form.png) no-repeat;
+	height: 72px;
+	width: 758px;
+}
+#form-container h3 {
+	color: #ff029d;
+	padding: 5px 0 0 125px;
+}
+#register-form {
+	width: 352px;
+	float: left;
+	font-size: 1.8em;
+	margin: 30px 0 0 0;
+}
+#register-form label {
+	font-family: "Arial Black";
+	color: #b1006c;
+	text-align: right;
+	width: 113px;
+	float: left;
+	margin: 0 12px 0 0;
+}
+#register-form input, #register-form select {
+	border: 1px solid #9c8a7b;
+	padding: 5px 4px 4px 6px;
+	float: left;
+	width: 212px;
+	font-size: 0.8em;
+}
+#register-form select { width: 224px; }
+#register-form select.small { width: 63px; }
+#register-form select.large { width: 80px; }
+.input-inactive {
+	font-style: italic;
+	color: #999;
+}
+.input-active {
+	color: #333;
+	font-style: normal;
+}
+#register-form #form-continue, #register-form #form-submit {
+	background: url(../_img/template/b-continue.gif) no-repeat;
+	width: 352px;
+	height: 68px;
+	display: block;
+	float: left;
+}
+#register-form #form-submit {
+	background: url(../_img/template/b-submit.gif) no-repeat;
+	border: none;
+}
+#register-form .note {
+	font-size: 11px;
+	color: #666;
+	padding: 0 0 0 125px;
+}
+#register-form .note a { color: #000; }
+#form-part2 { display: none; }
+
+/* ========================================= MEMBER HIGHLIGHT ===== */
+#member-highlight {
+	background: #ffcceb;
+	padding: 10px;
+	height: 366px;
+	width: 347px;
+	margin: 10px 0 0 0;
+	float: right;
+}
+#mh-image1, #mh-image2 { margin: 0 0 15px 0; }
+#name, #position, #quote {
+	text-align: center;
+	line-height: 18px;
+}
+#name {
+	color: #ff029d;
+	font-size: 2.4em;
+	font-weight: bold;
+	margin: 0 0 7px 0;
+}
+#position {
+	color: #82004f;
+	font-size: 1.8em;
+	margin: 0 0 12px 0;
+}
+#quote {
+	color: #b1006c;
+	font-size: 1.6em;
+	margin: 0 0 12px 0;
+}
+#button-chat {
+	background: url(../_img/template/b-chat.png) no-repeat;
+	height: 40px;
+	width: 172px;
+	margin: auto;
+	display: block;
+}
+
+/* ========================================= MEMBER FEED ===== */
+#member-feed { 
+	position: absolute;
+	bottom: 8px;
+	height: 20px;
+	overflow: hidden;
+	margin: 40px 0 0 0;
+}
+#member-feed span { 
+	color: #ff029d;
+	font-weight: bold;
+}
+#member-feed li {
+	color: #82004f;
+	width: 755px;
+	font-size: 1.8em;
+	margin: auto;
+	text-align: center;
+}
+
+/* ========================================= FOOTER ===== */
+#footer {
+	font-size: 1.2em;
+	color: #fff;
+	margin: 30px auto;
+	clear: both;
+}
+#footer a { color: #fff; }
+#footer span {
+	color: #fe17a5;
+	margin: 0 10px;
+}
+#logo-footer {
+	background: url(../_img/template/logo-footer.png) no-repeat;
+	height: 51px;
+	width: 92px;
+	float: left;
+	margin: 0 0 0 10px;
+}
+#copyright {
+	float: left;
+	width: 280px;
+	margin: 30px 0 0 20px;
+}
+#links {
+	float: right;
+	width: 350px;
+	margin: 30px 10px 0 20px;
+}
+#links li { float: right; }
