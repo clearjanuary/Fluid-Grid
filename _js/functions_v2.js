@@ -15,8 +15,9 @@ var Grid = {
 	},
 	// set up the grid
 	getGridSize: function() {		
-		var rows = Math.floor($(window).height()/190)-2,
+		var rows = Math.floor($(window).height()/195)-2,
 			columns = Math.floor($(window).width()/155);
+		$('#member-grid').height(rows * 195);
 		return rows*columns;
 	},
 	// create the member info array
