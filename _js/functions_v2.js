@@ -5,9 +5,22 @@
 */
 
 var Grid = {
-	photos: ['3','2','5','2','6','3','4','7','2','4','3','6'],
+	statuses: [],
+	imgs: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+	counts: ['3','2','5','2','6','3','4','7','2','4','3','6'],
 	init: function () {
 		var self = this;
+		// populate statuses with images and counts in random order
+		while(this.imgs.length) {
+			var rand = Math.floor(this.imgs.length * Math.random());
+			this.statuses.push({
+				status: Math.random > 0.5 ? 'online' : 'offline', // generate a random status
+				count: this.counts[rand],
+				src: this.imgs[rand]
+			});
+			this.imgs.splice(rand, 1);
+			this.counts.splice(rand, 1);
+		}
 		$(window).on('resize', function () {
 			self.getImagesIn()
 		});
@@ -28,9 +41,8 @@ var Grid = {
 			
 			// set on/offline status
 			var index = i%12,
-				src = index < 9 ? '0' + (index + 1) : index + 1,
-				status = i%2 ? 'online' : 'offline', // 
-				htmlTemplate = '<li class="member-container"><img src="_img/members/'+src+'.png" /><div class="num-photos">'+this.photos[index]+' photos</div><div class="member-'+status+'">'+status+'</div></li>';
+				s = this.statuses[index],
+				htmlTemplate = '<li class="member-container"><img src="_img/members/'+s.src+'.png" /><div class="num-photos">'+s.count+' photos</div><div class="member-'+s.status+'">'+s.status+'</div></li>';
 			$(htmlTemplate).appendTo('#member-grid');
 		}
 	}
